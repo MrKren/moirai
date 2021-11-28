@@ -29,4 +29,4 @@ Clone repo and begin developing :)
 
 To deploy to github pages,
 
-`npm run deploy`
+`yarn deploy`
