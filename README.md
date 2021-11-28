@@ -7,7 +7,7 @@ https://mrkren.github.io/moirai/
 
 ## How to setup your development environment
 
-Install (nvm)[https://github.com/nvm-sh/nvm] to get node and npm.
+Install [nvm](https://github.com/nvm-sh/nvm) to get node and npm.
 
 `nvm install 16`
 
