@@ -8,7 +8,7 @@ function Content() {
     return (
         <Box sx={{
             paddingRight: "30px",
-            marginLeft: "125px", // must be updated if size of NavBar changes
+            marginLeft: "185px", // must be updated if size of NavBar changes
         }}>
             <Routes>
                 <Route path="/" element={<Home />} />
