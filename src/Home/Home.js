@@ -1,9 +1,11 @@
 import Button from '@mui/material/Button';
+import ExampleText from '../ExampleText';
 
 function Home() {
     return (
-      <div className="App">
-        <Button variant="contained">Hello</Button>
+      <div>
+        <h1>Home Page</h1>
+        <ExampleText paras={5}></ExampleText>
       </div>
     );
   }
