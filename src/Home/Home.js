@@ -1,4 +1,3 @@
-import logo from './logo.png';
 import Button from '@mui/material/Button';
 
 function Home() {
