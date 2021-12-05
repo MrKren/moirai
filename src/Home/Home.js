@@ -1,4 +1,3 @@
-import Button from '@mui/material/Button';
 import ExampleText from '../ExampleText';
 
 function Home() {

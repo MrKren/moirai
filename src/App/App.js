@@ -1,11 +1,16 @@
-import './App.css';
+import { Box } from '@mui/system';
 import NavBar from '../NavBar';
+import Content from '../Content';
 
 function App() {
   return (
-    <div className="App">
+    <Box sx={{
+      display: "flex",
+      flexDirection: "row",
+    }}>
       <NavBar></NavBar>
-    </div>
+      <Content></Content>
+    </Box>
   );
 }
 
