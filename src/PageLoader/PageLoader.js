@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import About from '../About';
 import Home from '../Home';
 
-function Content() {
+function PageLoader() {
     return (
         <Box sx={{
             paddingRight: "30px",
@@ -18,4 +18,4 @@ function Content() {
     )
 }
 
-export default Content;
+export default PageLoader;
