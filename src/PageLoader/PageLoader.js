@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import { Route, Routes } from "react-router-dom";
 import About from '../About';
 import Home from '../Home';
+import Content from "../Content";
 
 function PageLoader() {
     return (
@@ -11,8 +12,10 @@ function PageLoader() {
             marginLeft: "185px", // must be updated if size of NavBar changes
         }}>
             <Routes>
+                {/* You must reboot local server when adding new routes */}
                 <Route path="/" element={<Home />} />
-                <Route path="/About" element={<About />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/content" element={<Content />} />
             </Routes>
         </Box>
     )
