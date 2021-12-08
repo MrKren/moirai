@@ -6,15 +6,21 @@ import InfoIcon from '@mui/icons-material/Info';
 import { Box } from "@mui/system";
 
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const NavBar = () =>  {
+    const [selectedIndex, setSelectedIndex] = useState(0);
+
     return(
-        <Box sx={{
-            position: "fixed",
-        }}>
+        <Box position="fixed">
             <List>
                 <ListItem>
-                    <ListItemButton component={Link} to="/">
+                    <ListItemButton 
+                        component={Link}   
+                        to="/"
+                        selected={selectedIndex === 0}
+                        onClick={() => setSelectedIndex(0)}
+                    >
                         <ListItemIcon>
                             <HomeIcon />
                         </ListItemIcon>
@@ -22,7 +28,12 @@ const NavBar = () =>  {
                     </ListItemButton>
                 </ListItem>
                 <ListItem>
-                    <ListItemButton component={Link} to="/timeline">
+                    <ListItemButton 
+                        component={Link}   
+                        to="/timeline"
+                        selected={selectedIndex === 1}
+                        onClick={() => setSelectedIndex(1)}
+                    >
                         <ListItemIcon>
                             <TimelineIcon />
                         </ListItemIcon>
@@ -30,7 +41,12 @@ const NavBar = () =>  {
                     </ListItemButton>
                 </ListItem>
                 <ListItem>
-                    <ListItemButton component={Link} to="/maps">
+                    <ListItemButton 
+                        component={Link}   
+                        to="/maps"
+                        selected={selectedIndex === 2}
+                        onClick={() => setSelectedIndex(2)}
+                    >
                         <ListItemIcon>
                             <MapIcon />
                         </ListItemIcon>
@@ -38,7 +54,12 @@ const NavBar = () =>  {
                     </ListItemButton>
                 </ListItem>
                 <ListItem>
-                    <ListItemButton component={Link} to="/about">
+                    <ListItemButton 
+                        component={Link}   
+                        to="/about"
+                        selected={selectedIndex === 3}
+                        onClick={() => setSelectedIndex(3)}
+                    >
                         <ListItemIcon>
                             <InfoIcon />
                         </ListItemIcon>
