@@ -2,6 +2,7 @@ import { Divider, Fab, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import EditIcon from '@mui/icons-material/Edit';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import showdown from 'showdown'
 
 import { useState } from 'react';
 
@@ -23,11 +24,12 @@ const inputBox = (props) => {
 }
 
 const outputBox = (props) => {
-    const textContent = `<p>${props.textContent}</p>`
+    var converter = new showdown.Converter();
+    const html = converter.makeHtml(props.textContent)
     return (
         <Box sx={{width: "90%"}}>
             <p>
-                <div dangerouslySetInnerHTML={{ __html: textContent}}></div>
+                <div dangerouslySetInnerHTML={{ __html: html}}></div>
             </p>
         </Box>
     )
