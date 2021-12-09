@@ -70,14 +70,14 @@ const NavBar = () =>  {
                 <ListItem>
                     <ListItemButton
                         component={Link}
-                        to="/content"
+                        to="/content-editor"
                         selected={selectedIndex === 4}
                         onClick={() => setSelectedIndex(4)}
                     >
                         <ListItemIcon>
                             <MenuBookIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Content" />
+                        <ListItemText primary="Editor" />
                     </ListItemButton>
                 </ListItem>
             </List>

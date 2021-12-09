@@ -35,13 +35,13 @@ const outputBox = (props) => {
     )
 }
 
-const Content = () => {
+const ContentEditor = () => {
     const [editState, setEditState] = useState(true);
     const [textContent, setTextContent] = useState("");
 
     return (
         <Box>
-            <h1>Example Page</h1>
+            <h1>Editor page</h1>
             <Divider />
             <p></p>
             <Box display="flex">
@@ -82,4 +82,4 @@ const Content = () => {
     )
 }
 
-export default Content;
+export default ContentEditor;

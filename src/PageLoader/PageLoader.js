@@ -3,7 +3,7 @@ import { Box } from "@mui/system";
 import { Route, Routes } from "react-router-dom";
 import About from '../About';
 import Home from '../Home';
-import Content from "../Content";
+import ContentEditor from "../ContentEditor";
 
 function PageLoader() {
     return (
@@ -16,7 +16,7 @@ function PageLoader() {
                 {/* You must reboot local server when adding new routes */}
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/content" element={<Content />} />
+                <Route path="/content-editor" element={<ContentEditor />} />
             </Routes>
         </Box>
     )
