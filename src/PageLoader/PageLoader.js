@@ -10,6 +10,7 @@ function PageLoader() {
         <Box sx={{
             paddingRight: "30px",
             marginLeft: "185px", // must be updated if size of NavBar changes
+            width: "100%",
         }}>
             <Routes>
                 {/* You must reboot local server when adding new routes */}
