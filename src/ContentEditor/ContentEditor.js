@@ -2,13 +2,17 @@ import { Divider, Fab, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import EditIcon from '@mui/icons-material/Edit';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
+import PreviewIcon from '@mui/icons-material/Preview';
 import showdown from 'showdown'
 
 import { useState } from 'react';
 
 const inputBox = (props) => {
     return (
-            <Box sx={{width: "90%"}}>
+            <Box sx={{
+                    width: "90%",
+                    minWidth: "400px",
+                }}>
                 <TextField
                     label="Add markdown here"
                     defaultValue={props.textContent}
@@ -37,6 +41,7 @@ const outputBox = (props) => {
 
 const ContentEditor = () => {
     const [editState, setEditState] = useState(true);
+    const [previewState, setPreviewState] = useState(false);
     const [textContent, setTextContent] = useState("");
 
     return (
@@ -57,15 +62,27 @@ const ContentEditor = () => {
                         flexDirection: "column",
                         alignItems: "center",
                         width: "10%",
-                        gap: "20px"
+                        gap: "20px",
+                        minWidth: "70px",
                     }}>
                     <Fab
                         size="small"
                         onClick={() => {
-                            setEditState(!editState)
+                            if (editState) {
+                                setPreviewState(false);
+                            }
+                            setEditState(!editState);
                         }}
                     >
                         <EditIcon/>
+                    </Fab>
+                    <Fab
+                        size="small"
+                        onClick={() => {
+                            setPreviewState(!previewState);
+                        }}
+                    >
+                        <PreviewIcon />
                     </Fab>
                     <Fab size="small">
                         <HelpCenterIcon/>
@@ -76,7 +93,9 @@ const ContentEditor = () => {
                     <Fab size="small" />
                     <Fab size="small" />
                     <Fab size="small" />
+                    <Fab size="small" />
                 </Box>
+                {previewState && outputBox({textContent})}
             </Box>
         </Box>
     )
