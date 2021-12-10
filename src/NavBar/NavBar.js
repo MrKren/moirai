@@ -3,6 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import MapIcon from '@mui/icons-material/Map';
 import InfoIcon from '@mui/icons-material/Info';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import { Box } from "@mui/system";
 
 import { Link } from "react-router-dom";
@@ -64,6 +65,19 @@ const NavBar = () =>  {
                             <InfoIcon />
                         </ListItemIcon>
                         <ListItemText primary="About" />
+                    </ListItemButton>
+                </ListItem>
+                <ListItem>
+                    <ListItemButton
+                        component={Link}
+                        to="/content-editor"
+                        selected={selectedIndex === 4}
+                        onClick={() => setSelectedIndex(4)}
+                    >
+                        <ListItemIcon>
+                            <MenuBookIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Editor" />
                     </ListItemButton>
                 </ListItem>
             </List>

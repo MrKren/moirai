@@ -1,6 +1,6 @@
 import { Box } from '@mui/system';
 import NavBar from '../NavBar';
-import Content from '../Content';
+import PageLoader from '../PageLoader';
 
 function App() {
   return (
@@ -8,8 +8,8 @@ function App() {
       display: "flex",
       flexDirection: "row",
     }}>
-      <NavBar></NavBar>
-      <Content></Content>
+      <NavBar />
+      <PageLoader />
     </Box>
   );
 }
