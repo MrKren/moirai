@@ -1,8 +1,17 @@
-import { Divider, Fab, TextField } from "@mui/material";
+import { Divider, Fab, TextField, Tooltip } from "@mui/material";
 import { Box } from "@mui/system";
 import EditIcon from '@mui/icons-material/Edit';
 import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import PreviewIcon from '@mui/icons-material/Preview';
+import SaveIcon from '@mui/icons-material/Save';
+
+import CastleIcon from '@mui/icons-material/Castle';
+import PersonIcon from '@mui/icons-material/Person';
+import LandscapeIcon from '@mui/icons-material/Landscape';
+import GroupsIcon from '@mui/icons-material/Groups';
+import ChurchIcon from '@mui/icons-material/Church';
+import JoinFullIcon from '@mui/icons-material/JoinFull';
+
 import showdown from 'showdown'
 
 import { useState } from 'react';
@@ -18,7 +27,7 @@ const inputBox = (props) => {
                     defaultValue={props.textContent}
                     fullWidth
                     multiline
-                    minRows={20}
+                    minRows={25}
                     onChange={(event) => {
                         props.setTextContent(event.target.value);
                     }}
@@ -44,6 +53,15 @@ const ContentEditor = () => {
     const [previewState, setPreviewState] = useState(false);
     const [textContent, setTextContent] = useState("");
 
+    const templates = [
+        {name: "Settlement", icon: <CastleIcon/>},
+        {name: "NPC", icon: <PersonIcon/>},
+        {name: "Geographical Feature", icon: <LandscapeIcon/>},
+        {name: "Faction", icon: <GroupsIcon/>},
+        {name: "Religion", icon: <ChurchIcon/>},
+        {name: "Plane of Existence", icon: <JoinFullIcon/>},
+    ]
+
     return (
         <Box>
             <h1>Editor page</h1>
@@ -65,35 +83,43 @@ const ContentEditor = () => {
                         gap: "20px",
                         minWidth: "70px",
                     }}>
-                    <Fab
-                        size="small"
-                        onClick={() => {
-                            if (editState) {
-                                setPreviewState(false);
-                            }
-                            setEditState(!editState);
-                        }}
-                    >
-                        <EditIcon/>
-                    </Fab>
-                    <Fab
-                        size="small"
-                        onClick={() => {
-                            setPreviewState(!previewState);
-                        }}
-                    >
-                        <PreviewIcon />
-                    </Fab>
-                    <Fab size="small">
-                        <HelpCenterIcon/>
-                    </Fab>
+                    <Tooltip title={editState ? "Save" : "Edit"}>
+                        <Fab
+                            size="small"
+                            onClick={() => {
+                                if (editState) {
+                                    setPreviewState(false);
+                                }
+                                setEditState(!editState);
+                            }}
+                        >
+                            {editState ? <SaveIcon/> : <EditIcon/>}
+                        </Fab>
+                    </Tooltip>
+                    <Tooltip title="Live Preview">
+                        <Fab
+                            size="small"
+                            onClick={() => {
+                                setPreviewState(!previewState);
+                            }}
+                        >
+                            <PreviewIcon />
+                        </Fab>
+                    </Tooltip>
+                    <Tooltip title="Help">
+                        <Fab 
+                            size="small"
+                        >
+                            <HelpCenterIcon/>
+                        </Fab>
+                    </Tooltip>
                     <Divider/>
                     {/* TODO: make templates that trigger using the buttons below */}
-                    <Fab size="small" />
-                    <Fab size="small" />
-                    <Fab size="small" />
-                    <Fab size="small" />
-                    <Fab size="small" />
+                    {templates.map(template => (
+                        <Tooltip key={template.name} title={template.name}>
+                            <Fab size="small">{template.icon}</Fab>
+                        </Tooltip>
+                    ))}
                 </Box>
                 {previewState && outputBox({textContent})}
             </Box>
