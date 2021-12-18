@@ -27,7 +27,7 @@ const inputBox = (props) => {
                     defaultValue={props.textContent}
                     fullWidth
                     multiline
-                    minRows={25}
+                    minRows={10}
                     onChange={(event) => {
                         props.setTextContent(event.target.value);
                     }}
@@ -38,6 +38,7 @@ const inputBox = (props) => {
 
 const outputBox = (props) => {
     var converter = new showdown.Converter();
+    converter.setFlavor('github');
     const html = converter.makeHtml(props.textContent)
     return (
         <Box sx={{width: "90%"}}>
