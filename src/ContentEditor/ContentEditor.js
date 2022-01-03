@@ -15,6 +15,7 @@ import JoinFullIcon from '@mui/icons-material/JoinFull';
 import showdown from 'showdown'
 
 import { useState } from 'react';
+import { Link } from "react-scroll";
 
 const inputBox = (props) => {
     return (
@@ -36,12 +37,48 @@ const inputBox = (props) => {
     )
 }
 
+const contentsList = (props) => {
+    let contents = props.textContent.split('\n').map(line => {
+        if (line[0] === "#") {
+            const title = line.split(' ');
+            const level = title[0].length;
+            const content = title.slice(1,).join(' ');
+            return {level: level, content: content}
+        }
+    });
+    contents = contents.filter(e => e != null);
+
+    return (
+        <Box>
+            <h2>Contents</h2>
+            {contents.map((heading, index) => {
+            const id = heading.content.split(' ').join('-')
+            console.log(id)
+            return (
+                <p key={index}>
+                    <Link
+                        to={id}
+                        smooth={true}
+                    >
+                        {heading.content}
+                    </Link>
+                </p>
+            )})}
+            <Divider />
+        </Box>
+        
+    )
+}
+
 const outputBox = (props) => {
+    const textContent = props.textContent;
     var converter = new showdown.Converter();
     converter.setFlavor('github');
-    const html = converter.makeHtml(props.textContent)
+    const html = converter.makeHtml(textContent);
+
     return (
         <Box sx={{width: "90%"}}>
+            {contentsList({textContent})}
             <p>
                 <div dangerouslySetInnerHTML={{ __html: html}}></div>
             </p>
