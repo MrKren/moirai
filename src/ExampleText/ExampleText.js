@@ -7,7 +7,6 @@ const ExampleText = ({
     const url = 'https://baconipsum.com/api/?type=all-meat-and-filler&paras=' + paras + '&start-with-lorem=1&format=html';
     const [data, setData] = useState(null);
     useEffect(() => {
-        if (data == null) {
         fetch(url).then(response => {
             if (response.ok) {
             return response.text();
@@ -15,8 +14,7 @@ const ExampleText = ({
         }).then(stuff => {
             setData(stuff);
         });
-        }
-    });
+    }, []);
     
     return (
         <div>
