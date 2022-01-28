@@ -47,6 +47,8 @@ const contentsList = (props) => {
       const content = title.slice(1).join(" ");
       return { level: level, content: content };
     }
+
+    return null;
   });
   contents = contents.filter((e) => e != null);
 

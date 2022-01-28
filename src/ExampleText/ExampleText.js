@@ -17,7 +17,7 @@ const ExampleText = ({ paras }) => {
       .then((stuff) => {
         setData(stuff);
       });
-  }, []);
+  }, [url]);
 
   return (
     <div>
