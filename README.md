@@ -27,6 +27,12 @@ Clone repo and begin developing :)
 
 `yarn start`
 
+To lint and format
+
+`yarn lint`
+
+`yarn lint:fix`
+
 To deploy to github pages,
 
 `yarn deploy`
